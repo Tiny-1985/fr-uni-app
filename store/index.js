@@ -68,15 +68,16 @@ const store = new Vuex.Store({
 			    title: '加载中'
 			});
 			let result = await ajax.get({
-				url:'/v2/movie/top250',
+				url:'/api/bing?id=today&pn=8',
 				data:{
 					start:0,
 					count:5
 				}
 			});
+			console.log(result)
 			uni.hideLoading()
-			ctx.commit("SET_ARTICLES",result.subjects)
-			return result.subjects
+			ctx.commit("SET_ARTICLES",result.data)
+			return result.data
 		},
 		async getDetail(ctx,params){
 			// /v2/movie/subject/:id

@@ -3,7 +3,7 @@
 // 项目公共配置
 let config = {
 	// 接口前缀
-	baseUrl:'http://douban-api.gek6.cn',
+	baseUrl:'https://api.muxiaoguo.cn',
 	// 图片前缀
 	imgPreUrl:'',
 	// 无图时默认图片

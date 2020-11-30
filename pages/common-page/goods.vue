@@ -21,7 +21,7 @@
 		<view class="goods-list">
 			<view class="goods-item" v-for="(item,index) in articles" :key="index" @tap="jump_detail(item.id)">
 				<view class="goods-img">
-					<image :src="item.images.small" mode=""></image>
+					<image :src="item.imgurl" mode=""></image>
 				</view>
 				<view class="goods-info">
 					{{item.title}}

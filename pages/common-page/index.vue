@@ -61,7 +61,7 @@
 		<view class="cu-list menu-avatar">
 			<view class="cu-item cur" v-for="(i,k) in articles" :key="k" @tap="jump_detail(i.id)">
 				<view class="cu-avatar radius lg" style="overflow: hidden;">
-					<image :src="i.images.small" mode="aspectFill"></image>
+					<image :src="i.imgurl" mode="aspectFill"></image>
 				</view>
 				<view class="content">
 					<view>
@@ -69,8 +69,8 @@
 					</view>
 					<view class="text-gray text-sm flex">
 						<view class="text-cut">
-							<text style="margin-right: 16upx;">{{i.durations[0]}} </text>
-							<text style="margin-left: 4upx;" v-for="tag in i.genres" :key="tag">{{tag}}</text>
+							<text style="margin-right: 16upx;">{{i.date}} </text>
+							<!-- <text style="margin-left: 4upx;" v-for="tag in i.genres" :key="tag">{{tag}}</text> -->
 						</view>
 					</view>
 				</view>

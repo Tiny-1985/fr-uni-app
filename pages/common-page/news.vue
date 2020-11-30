@@ -30,13 +30,13 @@
 			<view class="cu-item shadow"  v-for="(item,index) in articles" :key="index">
 				<view class="title"><view class="text-cut">{{item.title}}</view></view>
 				<view class="content">
-					<image :src="item.images.small"
+					<image :src="item.imgurl"
 					 mode="aspectFill"></image>
 					<view class="desc">
 						<view class="text-content"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam id dicta similique necessitatibus impedit explicabo ab itaque quibusdam incidunt delectus in repellat harum veritatis quia ratione molestiae praesentium earum? Alias?</view>
 						<view>
-							<view class="cu-tag bg-red light sm round">{{item.genres[0]}}</view>
-							<view class="cu-tag bg-green light sm round">{{item.genres[1]}}</view>
+							<view class="cu-tag bg-red light sm round">{{item.date}}</view>
+							<!-- <view class="cu-tag bg-green light sm round">{{item.genres[1]}}</view> -->
 						</view>
 					</view>
 				</view>

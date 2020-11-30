@@ -1,14 +1,15 @@
 <script>
 	import Vue from 'vue';
 	import ajax from 'lib/ajax.js';
+	import settingJson from "config/setting.js"
 	export default {
 		onLaunch: function() {
-			ajax.get({
-				url: 'http://oss-sign.gek6.com/uni-setting.json'
-			}).then(res => {
-				this.$store.commit("SET_COLOR", res);
-				this.$store.commit("SET_TABBAR",res.tabbar);
-			})
+
+ 
+
+			this.$store.commit("SET_COLOR", settingJson);
+			this.$store.commit("SET_TABBAR", settingJson.tabbar);
+
 			uni.getSystemInfo({
 				success: function(e) {
 					// #ifndef MP
@@ -21,10 +22,12 @@
 					// #endif
 
 					// #ifdef MP-WEIXIN
-					Vue.prototype.StatusBar = e.statusBarHeight;
-					let custom = wx.getMenuButtonBoundingClientRect();
-					Vue.prototype.Custom = custom;
-					Vue.prototype.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
+					setTimeout(()=>{
+						Vue.prototype.StatusBar = e.statusBarHeight;
+						let custom = uni.getMenuButtonBoundingClientRect();
+						Vue.prototype.Custom = custom;
+						Vue.prototype.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
+					},1000)
 					// #endif		
 
 					// #ifdef MP-ALIPAY
@@ -257,37 +260,40 @@
 	}
 
 
-	.goods-list{
+	.goods-list {
 		width: 690upx;
 		margin-left: 30upx;
 		min-height: 330upx;
-		margin-top: 20upx; 
+		margin-top: 20upx;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		.goods-item{
+
+		.goods-item {
 			width: 330upx;
 			margin-bottom: 30upx;
-			.goods-img{
+
+			.goods-img {
 				width: 330upx;
 				height: 330upx;
 				border-radius: 16upx;
 				overflow: hidden;
 				background-color: #CCCCCC;
 			}
-			.goods-info{
+
+			.goods-info {
 				width: 330upx;
 				margin-top: 16upx;
 				min-height: 60upx;
 				line-height: 60upx;
 				font-size: 34upx;
-				
+
 				// background-color: #AAAAAA;
 			}
 		}
 	}
-	
-	image{
+
+	image {
 		// 在支付宝小程序上所有图片都被编译成以背景图的形式显示
 		background-size: 100% 100%;
 	}
